@@ -1,7 +1,10 @@
 package Marquee.BinarySearch;
 
 import java.util.Scanner;
-
+//Complexity -> O(log n )
+// if the ele is at the mid -> O(1)
+// if the ele present at the nested mids -> O(log n/2)
+// else it is O(log n)
 public class BinarySearch {
     public static void main(String[] args){
         System.out.println("Enter the key to search");
