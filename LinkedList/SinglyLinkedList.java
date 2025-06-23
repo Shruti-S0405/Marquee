@@ -1,4 +1,4 @@
-package LinkedList;
+package Marquee.BinarySearch.LinkedList;
 
 public class SinglyLinkedList {
     Node head;
