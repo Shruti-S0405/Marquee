@@ -117,6 +117,17 @@ class DoublyLinkedList{
             return true;
         }
     }
+
+    public int getValue(int ind){
+        if(ind<0 || ind>size-1) return -1;
+        DoublyNode temp = head;
+        int count = 0;
+        while(count<ind){
+            temp = temp.next;
+            count++;
+        }
+        return temp.val;
+    }
 //    O(N)
     public void printList(){
         DoublyNode temp = head;
@@ -152,6 +163,9 @@ class DoublyLinkedList{
         System.out.println("\nDelete at specified index");
         dl.delete(2);
         dl.printList();
+        System.out.println("\nGetting the value in index 2");
+        System.out.println(dl.getValue(2));
+
     }
 }
 
