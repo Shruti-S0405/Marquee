@@ -10,6 +10,7 @@ public class ListNode {
 }
 
 class Main{
+    //O(N)
     public ListNode reverseList(ListNode head){
         ListNode prev = null;
         ListNode next = null;

@@ -1,6 +1,8 @@
 
 package Marquee.BinarySearch.LinkedList;
-
+// Only the insertion at specific index and deletion at specific index is O(N)
+// Deletion & Insertion at spec index is Linear Time Complexity
+// All the other methods have Constant Time Complexity
 class DoublyLinkedList{
     DoublyNode head;
     DoublyNode tail;
@@ -94,19 +96,28 @@ class DoublyLinkedList{
             return false;
         }
         else{
-            DoublyNode temp = head;
-            int count = 0;
-            while(count<(ind-1)){
-                temp = temp.next;
-                count++;
+            if(ind==0) deleteFirst();
+            else if(ind==size-1) deleteLast();
+            else {
+                DoublyNode temp = head;
+                int count = 0;
+                while (count < (ind - 1)) {
+                    temp = temp.next;
+                    count++;
+                }
+//                Approach one
+//                temp.next.next.prev = temp;
+//                temp.next = temp.next.next;
+//
+//                Approach two
+                temp.next = temp.next.next;
+                temp.next.prev = temp;
             }
-            temp.next.next.prev = temp;
-            temp.next = temp.next.next;
             size--;
             return true;
         }
     }
-
+//    O(N)
     public void printList(){
         DoublyNode temp = head;
         while(temp!=null){
