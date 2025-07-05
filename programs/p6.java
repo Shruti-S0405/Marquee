@@ -1,5 +1,6 @@
 package Marquee.BinarySearch.programs;
 import java.util.*;
+// Number to HexaDecimal
 public class p6 {
     public static void main(String[] args){
         Scanner sc = new Scanner(System.in);

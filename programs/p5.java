@@ -1,7 +1,5 @@
-package Marquee.BinarySearch.programs;
-
 import java.util.Scanner;
-
+//Valid String or Not
 public class p5 {
     public static void main(String[] args){
         Scanner sc = new Scanner(System.in);
