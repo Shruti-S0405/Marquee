@@ -14,30 +14,30 @@ class BinaryTree {
     int size;
     Scanner sc = new Scanner(System.in);
     public void add(){
-        System.out.print("Enter the value for the root node: ");
+        System.out.print("Root node val: ");
         root = new Node(sc.nextInt());
         size++;
         add(root);
     }
 
     public void add(Node parent){
-        System.out.print("Do u want to enter the right node?");
-        char c = sc.next().toLowerCase().charAt(0);
-        if(c=='y'){
-            System.out.print("Enter the right node val: ");
-            Node right = new Node(sc.nextInt());
-            parent.right = right;
-            size++;
-            add(parent.right);
-        }
-        System.out.print("Do you want to enter the left node?");
+        System.out.print("Left node of y/n"+parent.val);
         char ch = sc.next().toLowerCase().charAt(0);
         if(ch=='y'){
-            System.out.print("Enter the left node val");
+            System.out.print("Val of"+parent.val);
             Node left = new Node(sc.nextInt());
             parent.left = left;
             size++;
             add(parent.left);
+        }
+        System.out.print("right node of y/n"+parent.val);
+        char c = sc.next().toLowerCase().charAt(0);
+        if(c=='y'){
+            System.out.print("Val of"+parent.val);
+            Node right = new Node(sc.nextInt());
+            parent.right = right;
+            size++;
+            add(parent.right);
         }
     }
     //Pre-Order traversal
@@ -57,7 +57,7 @@ class BinaryTree {
 
     //In-Order traversal
     public void inOrder(){
-        preOrder(root);
+        inOrder(root);
     }
 
     public void inOrder(Node node){
@@ -86,7 +86,21 @@ class BinaryTree {
     }
 
     //Level Order Traversal
-    
+    Queue<Node> queue = new LinkedList<>();
+    public void levelOrder() {
+        queue.add(root);
+        while (!queue.isEmpty()) {
+            Node node = queue.peek();
+            if (node.left != null) {
+                queue.add(node.left);
+            }
+            if (node.right != null) {
+                queue.add(node.right);
+            }
+            System.out.print(node.val + " ");
+            queue.remove();
+        }
+    }
 
     public void display(){
         display(root, 0);
@@ -118,5 +132,12 @@ class BinaryTree {
         System.out.println("---------------------------------");
         bt.postOrder();
         System.out.println("---------------------------------");
+
+        System.out.println("Level-Order Binary Tree Traversal");
+        System.out.println("---------------------------------");
+        bt.levelOrder();
+        System.out.println("---------------------------------");
+
+
     }
 }
